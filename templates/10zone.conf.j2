@@ -19,9 +19,9 @@
 {% endfor %}
 
 {% for domain in local_zones %}
-    {% if domain is defined %}
+{% if domain is defined %}
     local-zone: "{{domain}}." {{local_zone_type[domain] | default(unbound_default_local_zone)}}
-    {% endif %}
+{% endif %}
 {% endfor %}
 
 {% for group, domain in inventory_domain.iteritems() %}
