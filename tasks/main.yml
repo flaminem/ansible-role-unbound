@@ -9,6 +9,10 @@
   when: ansible_os_family == 'RedHat' and unbound_only_zones == false
   tags: ["packages","unbound"]
 
+- name: Copy the Upstart unbound.conf template file
+  template: src=upstart_unbound.conf.j2 dest=/etc/init/unbound.conf
+  tags: ["configuration","unbound"]
+
 - name: Ensure zones folder exist
   file: path=/etc/unbound/conf.d state=directory mode=755
   notify: restart unbound
