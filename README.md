@@ -26,7 +26,7 @@ unbound_forward_zone:
    - 8.8.4.4 #Google DNS 2
 ```
 
-## Generate entries and reverse from the inventory (need ansible_ssh_host set on all host)
+## Generate entries and reverse from the inventory (need ansible_host set on all host)
 ```
 # Listen interface
 unbound_interfaces: 
@@ -55,7 +55,7 @@ unbound_forward_zone:
 
 ```
 
-## More complete example (need ansible_ssh_host set on all host)
+## More complete example (need ansible_host set on all host)
 ```
 # Listen interface
 unbound_interfaces: 

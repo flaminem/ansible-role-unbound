@@ -27,9 +27,9 @@
 {% for group, domain in inventory_domain.iteritems() %}
     # Group {{group}}
 {% for host in groups[group] %}
-    local-data: "{{ hostvars[host]['inventory_hostname_short'] }}.{{ domain }}. IN A {{ hostvars[host][ 'ansible_ssh_host'] }}"
+    local-data: "{{ hostvars[host]['inventory_hostname_short'] }}.{{ domain }}. IN A {{ hostvars[host][ 'ansible_host'] }}"
 {% if inventory_domain_with_reverse %}
-	local-data-ptr: "{{ hostvars[host]['ansible_ssh_host'] }} {{ hostvars[host]['inventory_hostname_short'] }}.{{ domain }}."
+	local-data-ptr: "{{ hostvars[host]['ansible_host'] }} {{ hostvars[host]['inventory_hostname_short'] }}.{{ domain }}."
 {% endif %}
 {% endfor %}
 {% endfor %}

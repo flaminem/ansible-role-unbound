@@ -38,14 +38,14 @@
   template: 
      src=10zone.conf.j2
      dest="/etc/unbound/conf.d/10{{item.name}}.conf"
-  with_items: unbound_zones
+  with_items: "{{ unbound_zones }}"
   notify: restart unbound
   tags: ["configuration","unbound"]
 
 - name: retreive unbound conf file list
   shell: /bin/ls /etc/unbound/conf.d/
   register: unbound_conf_list
-  always_run: true
+  check_mode: no
   tags: ["configuration","unbound"]
 
 - name: configure unbound.conf to include all configuration
